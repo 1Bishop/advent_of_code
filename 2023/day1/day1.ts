@@ -1,21 +1,20 @@
 // deno-lint-ignore-file prefer-const
 const currentPath = "./2023/day1/";
-const example = Deno.readTextFileSync(currentPath + "partone.txt");
+const partone = Deno.readTextFileSync(currentPath + "partone.txt");
 
 function calculateTotal(list: Array<string>): number {
     let total = 0;
     list.map((item: string) => {
         total += Number(item);
-    })
-    return total
+    });
+    return total;
 }
-
 
 const pattern = /\d+/g;
 
 let results: Array<string> = [];
 
-example.split("\n").map((line) => {
+partone.split("\n").map((line) => {
     const matches = line.match(pattern);
     if (matches) {
         if (matches.length > 1) {
@@ -31,7 +30,7 @@ example.split("\n").map((line) => {
     }
 });
 
-console.log(`Results: ${JSON.stringify(results)}`);
-console.log(calculateTotal(results))
-
+console.log(`Part 1 Results: ${JSON.stringify(results)}`);
+console.log(`Part 1 Total: ${calculateTotal(results)}`);
+// END OF PART 1
 
